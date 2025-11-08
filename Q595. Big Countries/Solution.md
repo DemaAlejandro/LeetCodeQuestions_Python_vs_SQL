@@ -1,8 +1,17 @@
-This solution is with Python
-\\\ python
+## Solution with Python
+
+```python
 import pandas as pd
-\\\
-This one with SQL
-\\\ sql
-SELECT * FROM world
-\\\
+
+def big_countries(world: pd.DataFrame) -> pd.DataFrame:
+    df = world[(world['area']>=3000000)|(world['population']>=25000000)]
+    return df[['name','population', 'area']]
+```
+## Solution with SQL
+
+```sql
+SELECT name, population, area
+FROM world 
+WHERE area >= 3000000 
+OR population >= 25000000
+```
